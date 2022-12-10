@@ -7,9 +7,17 @@ fn main() {
     let instructions = input.split("\n").into_iter().map(|f| f.split(" ").collect_vec()).collect_vec();
     // println!("Hello, world!");
     let mut head = (10000,10000);
-    let mut tail = (10000,10000);
-    let mut set = HashSet::<String>::new();
+    let mut tail1 = (10000,10000);
+    let mut tail2 = (10000,10000);
+    let mut tail3 = (10000,10000);
+    let mut tail4 = (10000,10000);
+    let mut tail5 = (10000,10000);
+    let mut tail6 = (10000,10000);
+    let mut tail7 = (10000,10000);
+    let mut tail8 = (10000,10000);
+    let mut tail9 = (10000,10000);
 
+    let mut set = HashSet::<String>::new();
 
     for instruction in instructions {
         let direction = instruction[0];
@@ -24,8 +32,16 @@ fn main() {
                 _ => println!("not sure")
             }
             println!("Updated head to {:?}", head);
-            update_tail(&mut tail, &mut head);
-            set.insert(format!("X{}Y{}",tail.0,tail.1));
+            update_tail(&mut tail1, &mut head);
+            update_tail(&mut tail2, &mut tail1);
+            update_tail(&mut tail3, &mut tail2);
+            update_tail(&mut tail4, &mut tail3);
+            update_tail(&mut tail5, &mut tail4);
+            update_tail(&mut tail6, &mut tail5);
+            update_tail(&mut tail7, &mut tail6);
+            update_tail(&mut tail8, &mut tail7);
+            update_tail(&mut tail9, &mut tail8);
+            set.insert(format!("X{}Y{}",tail9.0,tail9.1));
         }
         // update_head(instruction, &mut head, &mut tail);
         // println!("{:?}",instruction);
